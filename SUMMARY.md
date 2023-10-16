@@ -3,8 +3,10 @@
 ## Megatera FrontEnd Dev Road
 
 * [메가테라 프론트엔드 살아남기](README.md)
-* [1주차 : 프론트엔드 개발 환경](megatera-frontend-dev-road/1/README.md)
-  * [Page 1](megatera-frontend-dev-road/1/page-1.md)
+* [1주차 : 프론트엔드 개발 환경](lecture/1/README.md)
+  * [개발환경](lecture/1/page-1.md)
+  * [개발환경](lecture/1/page-2.md)
+  * [개발환경](lecture/1/page-3.md)
 
 ## GitBook
 
