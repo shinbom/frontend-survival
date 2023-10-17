@@ -1,4 +1,4 @@
-#  개발 환경
+# 개발 환경
 
 ```text
 키워드
@@ -12,6 +12,7 @@
 ```
 
 ## Node.js
+
 Chrome V8 JavaScript 엔진으로 빌드된 JavaScript 런터암
 
 LTS(Long Term Support) : 안정적인 버전
@@ -25,6 +26,7 @@ LTS(Long Term Support) : 안정적인 버전
 ```
 
 ### npm, npx
+
 ![npm vs npx](./src/npx.png)
 npm(Node Package Manager) : node.js를 위한 패키지 매니저, node.js를 위한 오픈 소스 생태계
 
@@ -82,8 +84,11 @@ npx tsc --init
 
   // ...(전략)...
   "jsx": "react-jsx", /* Specify what JSX code is generated. */
+  ...
+  "types": ["node", "jest", "@testing-library/jest-dom"],                                      /* Specify type package names to be included without being referenced in a source file. */
   // ...(후략)...
 ```
+
 주석되어있던 jsx 라인을 주석을 해제
 
 ```json
@@ -245,9 +250,7 @@ if (element) {
 ## Jest(테스팅 도구) 설치
 
 ```bash
-npm i -D jest @types/jest @swc/core @swc/jest \
-    jest-environment-jsdom \
-    @testing-library/react @testing-library/jest-dom
+npm i -D jest @types/jest @swc/core @swc/jest jest-environment-jsdom  @testing-library/react @testing-library/jest-dom
 ```
 
 ```javascript
@@ -256,14 +259,36 @@ module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'jsdom',
   setupFilesAfterEnv: [
-    '@testing-library/jest-dom/extend-expect',
+    '@testing-library/jest-dom',
+    './jest.setup.js',
   ],
+  transform: {
+  '^.+\\.(t|j)sx?$': ['@swc/jest', {
+   jsc: {
+    parser: {
+     syntax: 'typescript',
+     jsx: true,
+    },
+    transform: {
+     react: {
+      runtime: 'automatic',
+     },
+    },
+   },
+  }],
+ },
+  moduleNameMapper: {
+  '^src/(.*)$': '<rootDir>/src/$1',
+ },
   testPathIgnorePatterns: [
     '<rootDir>/node_modules/',
     '<rootDir>/dist/',
   ],
 };
 
+
+// jest.setup.js
+''
 ```
 
 ```javascript
@@ -351,3 +376,20 @@ npm start를 이용하여 React Project 실행
 2. github gitignore repository 사용  
 <https://github.com/github/gitignore>
 <https://github.com/github/gitignore/blob/main/Node.gitignore>
+
+## VsCode Setting
+
+jest, trailing Extension 설치
+
+```json
+// setting.json
+{
+    "editor.rulers": [
+        80
+    ],
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "trailing-spaces.trimOnSave": true
+}
+```
