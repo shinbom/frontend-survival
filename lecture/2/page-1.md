@@ -291,6 +291,12 @@ Syntactic sugar, or syntax sugar, is a visually or logically-appealing “shortc
 
 ---
 
+## 결론
+
+Virtual DOM을 어떻게 다루는지 이해가 있다면, 컴포넌트를 분할하는 방법만 바꿔도 퍼포먼스가 좋아진다
+
+---
+
 Dan Abramov
 
 - [Redux](https://redux.js.org/) 창시자
