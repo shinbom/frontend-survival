@@ -9,7 +9,8 @@
   * [React](lecture/1/page-3.md)
   * [Testing Library](lecture/1/page-4.md)
   * [Parcel + ESLint](lecture/1/page-5.md)
-* [2주차 : JSX](lecture/2/page-1.md)
+* [2주차 : JSX](lecture/2/README.md)
+  * [JSX](lecture/2/page-1.md)
 
 ## GitBook
 
