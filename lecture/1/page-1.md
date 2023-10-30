@@ -13,7 +13,7 @@
 
 ## Node.js
 
-Chrome V8 JavaScript 엔진으로 빌드된 JavaScript 런터암
+Chrome V8 JavaScript 엔진으로 빌드된 JavaScript 런타임
 
 LTS(Long Term Support) : 안정적인 버전
 

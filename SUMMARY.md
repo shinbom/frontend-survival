@@ -11,6 +11,8 @@
   * [Parcel + ESLint](lecture/1/page-5.md)
 * [2주차 : JSX](lecture/2/README.md)
   * [JSX](lecture/2/page-1.md)
+  * [UI Tree](lecture/2/page-2.md)
+  * [DOM Node](lecture/2/page-3.md)
 
 ## GitBook
 
