@@ -13,6 +13,10 @@
   * [JSX](lecture/2/page-1.md)
   * [UI Tree](lecture/2/page-2.md)
   * [DOM Node](lecture/2/page-3.md)
+* [3주차 : React](lecture/3/README.md)
+  * [React Component](lecture/3/page-1.md)
+  * [React Module](lecture/3/page-2.md)
+  * [Data](lecture/3/page-3.md)
 
 ## GitBook
 
