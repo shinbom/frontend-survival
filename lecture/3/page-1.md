@@ -61,9 +61,7 @@ Information Architecture(IA)는 콘텐츠를 구조화 하는 것이다.
 
 화면들의 연관성과 접근성을 업무별 필요한 기준으로 분류
 
-#### Atomic Design
-
-24:01
+#### [Atomic Design](./atomic-design.md)
 
 **작은 컴포넌트 : 부품을 만들어서 조립. 조합을 잘 해 가짓수를 폭발적으로 늘릴 수 있음.**
 
@@ -103,3 +101,126 @@ function addOne (arr) {
     return results;
 }
 ```
+
+### Refactoring
+
+#### Extract Function(함수 추출하기)
+
+```javascript
+// AS-IS
+function printOwing(invoice) {
+ printBanner();
+ let outstanding = calculateOutStanding();
+
+ // Print Detail
+ console.log(`고객명 : ${invoice.customer}`);
+ console.log(`채무액 : ${outstanding}`);
+}
+```
+
+```javascript
+// TO-BE
+function printOwing(invoice){
+ let outstanding = calculateOutStanding();
+
+ function printDetails(outstanding) {
+ console.log(`고객명 : ${invoice.customer}`);
+ console.log(`채무액 : ${outstanding}`);
+ }
+}
+```
+
+> 목적과 구현을 분리
+
+코드를 보고 무슨 일을 하는지 파악하는 데 한참이 걸린다면 그 부분을 함수로 추출한 뒤 '무슨 일'에 걸맞는 이름을 짓으면, 나중에 코드를 다시 읽을 때 함수의 목적이 눈에 확 들어오고, 본문 코드에 대해서 더 이상 신경을 쓰지 않아도 된다.
+
+### Inline Function(함수 인라인하기)
+
+```javascript
+// AS-IS
+function getRating(driver) {
+  return moreThanFiveLateDeliveries(driver) ? 2 : 1;
+}
+
+function moreThanFiveLateDeliveries(driver) {
+  return driver.numberOfLateDeliveries > 5;
+}
+```
+
+```javascript
+// TO-BE
+function getRating(driver) {
+  return (driver.numberOfLateDeliveries > 5) ? 2 : 1;
+}
+```
+
+잘못 추출된 함수들을 원래 함수로 합친 다음, 필요하면 원하는 형태로 다시 추출한다.
+간접 호출을 너무 과하게 쓰는 코드도 흔한 인라인 대상이다.
+
+위임 관계가 복잡하게 얽혀 있으면 인라인해버린다.
+
+---
+
+아주 흔히 쓰이는 SRP를 위한 수단. 변화의 크기(영향 범위)를 제약한다.
+
+일단 길게 코드를 작성하고, 적절히 자를 수 있는 부분이 보일 때 “함수로 추출”한다.
+
+또는 코드를 작성하기 어려운 상황에 직면했을 때 함수로 추출. 바로 다른 파일을 만들어야 한다고 생각하지 않아도 됨.
+
+컴포넌트 나누는 기준이 애매하면 다시 하나의 컴포넌트로 합쳤다가(Inline Method) 다시 나눠줘도 됨.
+
+---
+
+## Props
+
+나눠진 컴포넌트를 서로 연결하는 방법
+
+TypeScript를 잘 쓰거나 잘못 쓰게 되는 포인트 중 하나. 적절한 균형점을 잡는 게 중요하다.
+
+테스트코드를 작성하면 재사용성을 평가하기 쉬워짐.
+
+```tsx
+type Product = {
+ category: string;
+ price: string;
+ stocked: boolean;
+ name: string;
+};
+
+function ProductTable(props : {products : Product[]}) {
+ const products = props.products;
+}
+
+ // 디스트럭쳐링을 이용하여 사용
+function ProductTable({products} : {products : Product[]}) {
+}
+
+// Props의 Type을 선언하는 방법
+type ProductRowProps = {
+ product : Product;
+}
+
+export default function ProductRow({product} : ProductRowProps) {
+ ...
+}
+```
+
+```tsx
+// 타입일 때,
+type ProductRowProps = {
+ product : Product;
+} && {
+ ...
+}
+
+//  인터페이스 일 때,
+interface ProductRowProps extends ...
+```
+
+위와 같은 방법으로 props의 타입을 확장할 수 있다.
+
+---
+
+Props를 어떻게 써보느냐를 고민을 많이 하는게 좋다.
+
+여러개를 쪼개고, 쪼갠것들이 어떠한 데이터 형태를 취할지 고민하면 될 것 같다.
