@@ -20,8 +20,8 @@
 
 > [Thinking in React](https://beta.reactjs.org/learn/thinking-in-react)
 
-- “Step 1: UI를 컴포넌트의 계층구조로 나누기
-- “Step 2: 리액트로 정적인 버전으로 만들기”
+- "Step 1: UI를 컴포넌트의 계층구조로 나누기"
+- "Step 2: 리액트로 정적인 버전으로 만들기"
 
 **리액트는 선언형(HTML과 유사한 모양의 DSL을 사용)**
 
@@ -109,24 +109,28 @@ function addOne (arr) {
 ```javascript
 // AS-IS
 function printOwing(invoice) {
- printBanner();
- let outstanding = calculateOutStanding();
+  printBanner();
+  let outstanding  = calculateOutstanding();
+  printDetails(outstanding);
 
- // Print Detail
- console.log(`고객명 : ${invoice.customer}`);
- console.log(`채무액 : ${outstanding}`);
+  function printDetails(outstanding) {
+    console.log(`고객명: ${invoice.customer}`);
+    console.log(`채무액: ${outstanding}`);
+  }
 }
 ```
 
 ```javascript
 // TO-BE
-function printOwing(invoice){
- let outstanding = calculateOutStanding();
+function printOwing(invoice) {
+  printBanner();
+  let outstanding  = calculateOutstanding();
+  printDetails(outstanding);
 
- function printDetails(outstanding) {
- console.log(`고객명 : ${invoice.customer}`);
- console.log(`채무액 : ${outstanding}`);
- }
+  function printDetails(outstanding) {
+    console.log(`고객명: ${invoice.customer}`);
+    console.log(`채무액: ${outstanding}`);
+  }
 }
 ```
 
