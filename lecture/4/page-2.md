@@ -45,7 +45,7 @@ method : 'POST' | 'GET' | 'PUT' | 'DELETE' 등
 })
 ```
 
-### 
+###
 
 ### ReadableStream
 
@@ -64,15 +64,15 @@ const body = new TextDecoder().decode(chunk.value);
 const data = JSON.parse(body);
 ```
 
-### 
+###
 
 ### Unit8Array
 
 **`Uint8Array`** 형식화 배열(TypedArray)은 플랫폼의 바이트 순서를 따르는 8비트 부호 없는 정수의 배열
 
-![ArrayBuffer](C:\BOM\BOM_WEB\megatera\frontend-survival\lecture\4\src\unit8array.png) 
+![ArrayBuffer](C:\BOM\BOM_WEB\megatera\frontend-survival\lecture\4\src\unit8array.png)
 
-### 
+###
 
 ### Text Decoder
 
@@ -113,7 +113,7 @@ while(true) {
 
 > `ReadableStream` 객체는 `Stream API`에 명시되어 있는데, 해당 `API`는 명세에 따르면 비동기 반복자가 가능하다. 따라서 무한 반복문 말고 `for await ... of` 반복문을 사용할 수 있다. 그렇지만 이는 아직 모든 브라우저에서 지원되지 않기에 보통 `while`을 이용한 무한 루프를 사용한다.
 
-### 
+###
 
 ### Fetch ReadableStream Step
 
@@ -171,21 +171,15 @@ let commits = JSON.parse(result);
 
 6. 최종적으로 `TextDecoder`를 통해 변환된 결과를 다시 `JSON.parse()` 메서드를 통해 `JSON`으로 변환하면 원하는 응답 본문에 `commits`에   접근할 수 있다.
 
-
-
 ### Unicode
 
 유니코드(Unicode)는 전 세계의 모든 문자를 다루도록 설계된 표준 문자 전산 처리 방식
-
-
 
 ---
 
 ## Promise
 
 **`Promise`** 객체는 비동기 작업이 맞이할 미래의 완료 또는 실패와 그 결과 값을 나타냅니다.
-
-
 
 - 대기(*pending)*: 이행하지도, 거부하지도 않은 초기 상태.
 - 이행(*fulfilled)*: 연산이 성공적으로 완료됨.
@@ -207,8 +201,6 @@ p.then(function (value) {
 
 Promise를 리턴하고 두개의 콜백 함수를 인수로 받았을 때, 이행 or 거부를 위한 콜백함수
 
-
-
 ### async & await
 
 ```javascript
@@ -221,8 +213,6 @@ f().then(alert); // 1
 ```
 
 funciton 앞에 async를 붙이면, 함수는 항상 Promise를 반환
-
-
 
 ```javascript
 async function f() {
@@ -241,13 +231,7 @@ f();
 
 awiat 키워드를 만나면, Promise가 처리될때까지 기다림
 
-
-
 > `await`는 `promise.then`보다 좀 더 세련되게 프라미스의 `result` 값을 얻을 수 있도록 해주는 문법입니다. `promise.then`보다 가독성 좋고 쓰기도 쉽습니다.
-
-
-
-
 
 ```javascript
 async function f() {
@@ -264,11 +248,7 @@ async function f() {
 
 try...catch가 없을 경우, Promise는 거부상태가 됨
 
-
-
 ---
-
-
 
 ## CORS(CrossOrigin)
 
@@ -276,51 +256,31 @@ try...catch가 없을 경우, Promise는 거부상태가 됨
 
 > [CORS](https://developer.mozilla.org/ko/docs/Web/HTTP/CORS)
 
-
-
 ![URL](C:\BOM\BOM_WEB\megatera\frontend-survival\lecture\4\src\origin.png)
 
-웹 브라우저는 Same Origin Policy에 따라 웹 페이지와 리소스를 요청한 곳(여기서는 REST API 서버)이 서로 다른 출처(포트까지 포함)일 때 서버에서 얻은 결과를 사용할 수 없게 막는다. 
-
-
+웹 브라우저는 Same Origin Policy에 따라 웹 페이지와 리소스를 요청한 곳(여기서는 REST API 서버)이 서로 다른 출처(포트까지 포함)일 때 서버에서 얻은 결과를 사용할 수 없게 막는다.
 
 출처는 `Protocol`과 `Host`, 그리고 위 그림에는 나와있지 않지만 `:80`, `:443`과 같은 포트 번호까지 모두 합친 것을 의미한다.
 
-
-
 포트 번호까지 모두 일치해야 같은 출처라고 인정된다.
-
-
 
 ### SOP(Same-Origin Policy)
 
 > “같은 출처에서만 리소스를 공유할 수 있다”라는 규칙
 
-
-
 > 리소스 요청은 출처가 다르더라도 허용하기로 했는데, 그 중 하나가 “CORS 정책을 지킨 리소스 요청”
-
-
 
 ****
 
-
-
 **출처를 비교하는 로직은 서버에 구현된 스펙이 아니라 브라우저에 구현되어 있는 스펙이다.**
-
-
 
 [CORS는 왜 이렇게 우리를 힘들게 할까](https://evan-moon.github.io/2020/05/21/about-cors/)
 
---- 
+---
 
 서버에 요청하고 응답을 받아오는 것까지는 이미 진행이 다 된 상황이란 점에 주의!
 
-
-
 REST API 서버에서 Headers에 **“Access-Control-Allow-Origin”** 속성을 추가하면 된다.
-
-
 
 Express에선 그냥 [CORS 미들웨어](https://expressjs.com/en/resources/middleware/cors.html)를 설치해서 사용하면 됨.
 
@@ -341,7 +301,5 @@ import cors from 'cors';
 const app = express(); 
 app.use(cors());
 ```
-
-
 
 > 일정상 작업하고 백엔드 API가 안나왔을 때, Express를 이용하여, 작업할 수 있다.
