@@ -24,6 +24,9 @@
   * [React Hook](lecture/4/page-3.md)
   * [useRef & Custom Hook](lecture/4/page-4.md)
   * [usehooks-ts](lecture/4/page-5.md)
+* [5주차 : 테스트](lecture/5/README.md)
+  * [TDD](lecture/5/page-1.md)
+  * [React Testing Library](lecture/5/page-2.md)
 
 ## GitBook
 
