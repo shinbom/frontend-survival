@@ -28,6 +28,7 @@
   * [TDD](lecture/5/page-1.md)
   * [React Testing Library](lecture/5/page-2.md)
   * [MSW(Mock Service Worker)](lecture/5/page-3.md)
+  * [Playwright](lecture/5/page-4.md)
 
 ## GitBook
 
