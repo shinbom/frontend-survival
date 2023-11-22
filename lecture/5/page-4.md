@@ -13,11 +13,11 @@
 ## Playwright
 
 > [Playwright](https://playwright.dev/)
- 
+
 > [Playwright Configuration](https://playwright.dev/docs/test-configuration)
 
 > [Ashal의 Playwright](https://github.com/ahastudio/til/blob/main/test/playwright.md)
- 
+
 <aside>
 💡 웹 브라우저 기반 E2E 테스트 자동화 도구.
 Headless Chrome을 기반으로 한 Puppeteer를 계승하면서, 더 많은 웹 브라우저를 지원한다.
@@ -37,14 +37,14 @@ npm i -D @playwright/test eslint-plugin-playwright
 import { PlaywrightTestConfig } from '@playwright/test';
 
 const config: PlaywrightTestConfig = {
-	testDir: './tests',
-	retries: 0,
-	use: {
-    	channel: "chrome",
-		baseURL: 'http://localhost:8080',
-		headless: !!process.env.CI,
-		screenshot: 'only-on-failure',
-	},
+ testDir: './tests',
+ retries: 0,
+ use: {
+     channel: "chrome",
+  baseURL: 'http://localhost:8080',
+  headless: !!process.env.CI,
+  screenshot: 'only-on-failure',
+ },
 };
 
 export default config;
@@ -53,55 +53,57 @@ export default config;
 channel이 엣지인 경우 `channel: "msedge"`을 추가한다.
 
 tests/.eslintrc.js 파일
+
 ```bash
 module.exports = {
-	env: {
-		jest: false,
-	},
-	extends: ['plugin:playwright/playwright-test'],
-	rules: {
-		'import/no-extraneous-dependencies': 'off',
-	},
+ env: {
+  jest: false,
+ },
+ extends: ['plugin:playwright/playwright-test'],
+ rules: {
+  'import/no-extraneous-dependencies': 'off',
+ },
 };
 ```
 
 tests/home.spec.ts
+
 ```typescript
 import { test, expect } from '@playwright/test';
 
 test('Filter products', async ({ page }) => {
-	await page.goto('/');
+ await page.goto('/');
 
-	await expect(page.getByText('Apple')).toBeVisible();
+ await expect(page.getByText('Apple')).toBeVisible();
 
-	const searchInput = page.getByLabel('Search');
+ const searchInput = page.getByLabel('Search');
 
-	await searchInput.fill('a');
+ await searchInput.fill('a');
 
-	await expect(page.getByText('Apple')).toBeVisible();
+ await expect(page.getByText('Apple')).toBeVisible();
 
-	await searchInput.fill('aa');
+ await searchInput.fill('aa');
 
-	await expect(page.getByText('Apple')).toBeHidden();
+ await expect(page.getByText('Apple')).toBeHidden();
 });
 
 test('Click the “Increase” button', async ({ page }) => {
-	await page.goto('/');
+ await page.goto('/');
 
-	const count = 13;
+ const count = 13;
 
-	await Promise.all((
-		[...Array(count)].map(async () => {
-			await page.getByText('Increase').click();
-		})
-	));
+ await Promise.all((
+  [...Array(count)].map(async () => {
+   await page.getByText('Increase').click();
+  })
+ ));
 
-	await expect(page.getByText(`${count}`)).toBeVisible();
+ await expect(page.getByText(`${count}`)).toBeVisible();
 });
 ```
 
 테스트 실행
- 
+
 ```bash
 npx playwright test
 ```

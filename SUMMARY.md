@@ -29,6 +29,11 @@
   * [React Testing Library](lecture/5/page-2.md)
   * [MSW(Mock Service Worker)](lecture/5/page-3.md)
   * [Playwright](lecture/5/page-4.md)
+* [6주차 : External Store](lecture/6/README.md)
+  * [External Store](lecture/5/page-1.md)
+  * [TSyringe](lecture/5/page-2.md)
+  * [Redux 따라하기](lecture/5/page-3.md)
+  * [usestore-ts](lecture/5/page-4.md)
 
 ## GitBook
 
