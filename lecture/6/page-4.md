@@ -162,7 +162,17 @@ class PostStore {
 }
 ```
 
+## useSyncExternalStore
+
+리엑트에서 내부적으로 제공하는 useState, useReducer와 같은 상태관리 api가 아니라, 자체적으로 상태관리 툴을 만들어 리엑트 훅과 연동시킨 상태관리 라이브러리들을 external store라고 합니다. 대표적으로 mobx, redux, recoil, jotai, xtsate, zustand, rect query등이 있습니다.
+
+이들의 상태 관리 흐름은 리엑트에서 관찰하지 않는다.
+
+> 나온 이유 : useSyncExternalStore이 해결하는 문제는 concurrent feature에서 발생하는 Tearing때문
+
+concurrent feature는 렌더링 도중 들어오는 유저 인터렉션에 대해 기존 렌더링을 중지하고 인터렉션에 대한 UI를 먼저 렌더링 하기 때문에 아래처럼 빨간색으로 렌더링 트리를 업데이트하는 도중 파란색의 이터렉션으로 인해 트리의 일부분이 파란색으로 렌더링될 수 있습니다.
+
 ## 참고
 
-- [useSyncExternalStore](https://beta.reactjs.org/reference/react/useSyncExternalStore)
+- [useSyncExternalStore](https://react.dev/reference/react/useSyncExternalStore)
 - [FECONF 2022 - 상태관리 이 전쟁을 끝내러 왔다](https://youtu.be/KEDUqA9JeIo)
