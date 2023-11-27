@@ -34,6 +34,11 @@
   - [TSyringe](lecture/6/page-2.md)
   - [Redux 따라하기](lecture/6/page-3.md)
   - [usestore-ts](lecture/6/page-4.md)
+- [7주차 : Route](lecture/7/README.md)
+  - [Routing](lecture/7/page-1.md)
+  - [Routes](lecture/7/page-2.md)
+  - [Router](lecture/7/page-3.md)
+  - [Navigation](lecture/7/page-4.md)
 
 ## GitBook
 
