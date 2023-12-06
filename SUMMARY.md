@@ -39,7 +39,7 @@
   - [Routes](lecture/7/page-2.md)
   - [Router](lecture/7/page-3.md)
   - [Navigation](lecture/7/page-4.md)
-- [8주차 : Route](lecture/8/README.md)
+- [8주차 : CSS in JS](lecture/8/README.md)
   - [Design System](lecture/8/page-1.md)
   - [Style Basic](lecture/8/page-2.md)
   - [CSS in JS](lecture/8/page-3.md)
