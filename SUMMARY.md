@@ -39,6 +39,17 @@
   - [Routes](lecture/7/page-2.md)
   - [Router](lecture/7/page-3.md)
   - [Navigation](lecture/7/page-4.md)
+- [8주차 : Route](lecture/8/README.md)
+  - [Design System](lecture/8/page-1.md)
+  - [Style Basic](lecture/8/page-2.md)
+  - [CSS in JS](lecture/8/page-3.md)
+  - [Styled Components](lecture/8/page-4.md)
+  - [Props](lecture/8/page-5.md)
+  - [Attrs](lecture/8/page-6.md)
+  - [Global Styles](lecture/8/page-7.md)
+  - [Theme](lecture/8/page-8.md)
+
+
 
 ## GitBook
 
