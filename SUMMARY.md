@@ -48,6 +48,10 @@
   - [Attrs](lecture/8/page-6.md)
   - [Global Styles](lecture/8/page-7.md)
   - [Theme](lecture/8/page-8.md)
+- [9주차 : 온라인 쇼핑몰](lecture/9/README.md)
+  - [개발하기 전 준비](lecture/9/page-1.md)
+  - [목록 보기](lecture/9/page-2.md)
+  - [상품 상세 보기](lecture/9/page-3.md)
 
 
 
