@@ -52,8 +52,8 @@
   - [개발하기 전 준비](lecture/9/page-1.md)
   - [목록 보기](lecture/9/page-2.md)
   - [상품 상세 보기](lecture/9/page-3.md)
-
-
+  - [장바구니](lecture/9/page-4.md)
+  - [장바구니에 상품 담기](lecture/9/page-5.md)
 
 ## GitBook
 
