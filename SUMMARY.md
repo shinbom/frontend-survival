@@ -48,12 +48,14 @@
   - [Attrs](lecture/8/page-6.md)
   - [Global Styles](lecture/8/page-7.md)
   - [Theme](lecture/8/page-8.md)
-- [9주차 : 온라인 쇼핑몰](lecture/9/README.md)
+- [9주차 : 온라인 쇼핑몰 1](lecture/9/README.md)
   - [개발하기 전 준비](lecture/9/page-1.md)
   - [목록 보기](lecture/9/page-2.md)
   - [상품 상세 보기](lecture/9/page-3.md)
   - [장바구니](lecture/9/page-4.md)
   - [장바구니에 상품 담기](lecture/9/page-5.md)
+- [10주차 : 온라인 쇼핑몰 2](lecture/10/README.md)
+  - [로그인 & 로그아웃](lecture/10/page-1.md)
 
 ## GitBook
 
