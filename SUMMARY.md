@@ -54,8 +54,7 @@
   - [상품 상세 보기](lecture/9/page-3.md)
   - [장바구니](lecture/9/page-4.md)
   - [장바구니에 상품 담기](lecture/9/page-5.md)
-- [10주차 : 온라인 쇼핑몰 2](lecture/10/README.md)
-  - [로그인 & 로그아웃](lecture/10/page-1.md)
+- [10주차 : 온라인 쇼핑몰 2](lecture/10/page-1.md)
 
 ## GitBook
 
